@@ -1,0 +1,23 @@
+<p class="p-2 rounded bg-info">All Employess</p>
+
+<div class="row">
+    <div class="col-xxl-4  d-flex flex-wrap ">
+        <div class="card m-3" *ngFor="let emp of employees">
+            <div class="card-header">
+                {{emp.name}}
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{emp.address}}</h4>
+                <p class="list-group list-group-numbered">
+                    
+                        <li class="list-group-item">{{emp.phone}}</li>
+                        <li class="list-group-item">{{emp.email}}</li>
+                   
+                </p>
+            </div>
+            <div class="card-footer text-muted">
+                Footer
+            </div>
+        </div>
+    </div>
+</div>
