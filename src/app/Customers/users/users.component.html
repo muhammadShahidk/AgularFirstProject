@@ -1,0 +1,74 @@
+<p>users works!</p>
+
+<button (click)="sendGetRequest()" type="button" class="btn btn-outline-primary">Button</button>
+
+
+
+<div class="table-responsive rounded-3 shadow">
+    <table id="cuTable" class="table table-hover">
+        <thead class="bg-info">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>DateOfBirth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of users">
+                <td>{{x.Id}}</td>
+                <td>{{x.Name}}</td>
+                <td>{{x.Email}}</td>
+                <td>{{x.Age}}</td>
+                <td>{{ x.DateOfBirth | date:'MM/dd/yyyy'}}</td>
+                <td>
+                    <span id="edit"  (click)="editMe(x.Id)" data-id="{{x.id}}" data-bs-toggle="modal" data-bs-target="#modalId" class="btn btn-outline bg-info p-2">Edit</span>
+                    <span id="delete" (click)="editMe(x.Id)" data-id="{{x.id}}" class="btn btn-outline-light bg-danger  p-2">Delete</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+      Launch
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        {{currentUser.Name}}
+                        <label for="">Id</label> 
+                        <input  class="form-control"  [(ngModel)]="currentUser.Id" type="number">
+                        <label for="">Name</label> 
+                        <input  class="form-control"  [(ngModel)]="currentUser.Name" type="text">
+                        <label for="">Email</label> 
+                        <input  class="form-control"  [(ngModel)]="currentUser.Email" type="email">
+                        <label for="">Age</label> 
+                        <input  class="form-control"  [(ngModel)]="currentUser.Age" type="number">
+                        <label for="">DateOfBirth</label> 
+                        <input  class="form-control"  [(ngModel)]="currentUser.DateOfBirth" type="datetime-local">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button (click)="EditSave()" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <input type="date" name="" id="">
+    
+</div>
